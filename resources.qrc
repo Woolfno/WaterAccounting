@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/add-address.png</file>
+        <file>Resources/add.png</file>
+        <file>Resources/Black_Blue_png-AddressBook-48.png-48x48.png</file>
+        <file>Resources/branch_add.png</file>
+        <file>Resources/images.jpg</file>
+        <file>Resources/list-remove.png</file>
+        <file>Resources/pen-write-edit.png</file>
+        <file>Resources/remove_exit_error_false_incorrect_delete_close.png</file>
+        <file>Resources/users-17.png</file>
+        <file>Resources/Users-icon.png</file>
+        <file>Resources/building_add.ico</file>
+        <file>Resources/Add-Account.ico</file>
+    </qresource>
+</RCC>
