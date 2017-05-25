@@ -1,4 +1,4 @@
-# Prerequisites
+﻿# Prerequisites
 *.d
 
 # Compiled Object files
@@ -30,5 +30,6 @@
 *.exe
 *.out
 *.app
-/WaterAccounting.pro.user
-/УчетВоды.bmpr
+=======
+*.bmpr
+*.pro.user
