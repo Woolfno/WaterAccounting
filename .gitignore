@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/WaterAccounting.pro.user
+/УчетВоды.bmpr
