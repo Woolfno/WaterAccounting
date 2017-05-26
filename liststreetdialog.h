@@ -15,13 +15,18 @@ public:
     ~ListStreetDialog();
 
     int getStreetId() const;
-
     QString getStreetName() const;
+
+    void onlyCloseButton() const;
 
 private slots:
     void on_buttonBox_accepted();
 
     void on_pushButtonAdd_clicked();
+
+    void on_pushButtonDelete_clicked();
+
+    void on_pushButtonEdit_clicked();
 
 private:
     Ui::ListStreetDialog ui;
