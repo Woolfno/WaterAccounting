@@ -10,18 +10,17 @@ class StreetDialog : public QDialog
 public:
     explicit StreetDialog(QWidget * parent=0);    
     ~StreetDialog();
-    QString getStreetName() const;
 
-protected:
-    void closeEvent(QCloseEvent *event);
+    QString getStreetName() const;
+    void setStreetName(const QString &value);
 
 private slots:
-    void on_buttonBox_accepted();
+    void on_pushButtonOk_clicked();
+    void on_pushButtonCancel_clicked();
 
 private:
     Ui::AddStreetDialog ui;
     QString streetName;
-    bool valid;
 };
 
 #endif // STREETDIALOG_H
