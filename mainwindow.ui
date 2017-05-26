@@ -294,6 +294,9 @@
    <property name="text">
     <string>Список</string>
    </property>
+   <property name="toolTip">
+    <string>Список улиц</string>
+   </property>
   </action>
   <action name="action_add_building">
    <property name="text">
