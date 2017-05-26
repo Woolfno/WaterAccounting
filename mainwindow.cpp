@@ -114,10 +114,7 @@ void MainWindow::on_action_add_rate_triggered()
 void MainWindow::on_action_list_street_triggered()
 {
     ListStreetDialog * dlg=new ListStreetDialog(db);
-    if(dlg->exec()==QDialog::Accepted)
-    {
-        qDebug()<<"Accept";
-        //qDebug()<<dlg->getSelectId();
-    }
+    dlg->onlyCloseButton();
+    dlg->exec();
     delete dlg;
 }
