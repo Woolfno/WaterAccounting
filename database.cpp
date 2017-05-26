@@ -65,6 +65,23 @@ bool DataBase::addStreet(QString name)
     return query.exec();
 }
 
+bool DataBase::deleteStreet(int streetId)
+{
+    QSqlQuery query;
+    query.prepare("delete from street where id=?;");
+    query.addBindValue(streetId);
+    return query.exec();
+}
+
+bool DataBase::updateStreet(int streetId, QString streetName)
+{
+    QSqlQuery query;
+    query.prepare("update street set name=? where id=?;");
+    query.addBindValue(streetName);
+    query.addBindValue(streetId);
+    return query.exec();
+}
+
 void DataBase::initAccrualModel(QSqlQueryModel *model)
 {
     model->setQuery("select date, rate, amount from accruals limit 0");

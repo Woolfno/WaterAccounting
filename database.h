@@ -23,6 +23,8 @@ public:
 
     void allStreet(QSqlQueryModel * model);
     bool addStreet(QString name);
+    bool deleteStreet(int streetId);
+    bool updateStreet(int streetId, QString streetName);
 
     void initAccrualModel(QSqlQueryModel * model);
     void accrualsSetHeader(QSqlQueryModel *model);
