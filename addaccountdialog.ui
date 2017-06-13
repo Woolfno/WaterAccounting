@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>330</width>
-    <height>200</height>
+    <width>350</width>
+    <height>135</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Аккаунт</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0">
+   <item row="0" column="0" colspan="2">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <layout class="QFormLayout" name="formLayout">
@@ -26,7 +26,14 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEditFirstName"/>
+        <widget class="QLineEdit" name="lineEditFirstName">
+         <property name="inputMask">
+          <string>&gt;A&lt;aaaaaaaaaaaaaaaaaaa</string>
+         </property>
+         <property name="maxLength">
+          <number>20</number>
+         </property>
+        </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
@@ -36,7 +43,11 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEditSecondName"/>
+        <widget class="QLineEdit" name="lineEditSecondName">
+         <property name="inputMask">
+          <string>&gt;A&lt;aaaaaaaaaaaaaaaaaaa</string>
+         </property>
+        </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_3">
@@ -46,118 +57,15 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="lineEditLastName"/>
+        <widget class="QLineEdit" name="lineEditLastName">
+         <property name="inputMask">
+          <string>&gt;A&lt;aaaaaaaaaaaaaaaaaaa</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>55</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>55</height>
-        </size>
-       </property>
-       <property name="title">
-        <string>Адрес</string>
-       </property>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Улица</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit">
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButtonStreetChoose">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>...</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>50</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Номер дома</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEditNumberHouse">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>30</width>
-              <height>16777215</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
     </layout>
-   </item>
-   <item row="1" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
    </item>
    <item row="2" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -172,6 +80,19 @@
      </property>
     </widget>
    </item>
+   <item row="1" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
  <resources/>
@@ -183,8 +104,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>257</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -199,8 +120,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>325</x>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
