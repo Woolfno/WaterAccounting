@@ -11,7 +11,7 @@ class ListStreetDialog:public QDialog
 {
     Q_OBJECT
 public:
-    explicit ListStreetDialog(DataBase *db, int streetId=-1, QWidget *parent=0);
+    explicit ListStreetDialog(DataBase *db, int selectId=-1, QWidget *parent=0);
     ~ListStreetDialog();
 
     int getStreetId() const;

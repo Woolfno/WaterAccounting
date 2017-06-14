@@ -12,5 +12,7 @@
         <file>Resources/Users-icon.png</file>
         <file>Resources/building_add.ico</file>
         <file>Resources/Add-Account.ico</file>
+        <file>Resources/Money_Calculator.ico</file>
+        <file>Resources/учет.png</file>
     </qresource>
 </RCC>

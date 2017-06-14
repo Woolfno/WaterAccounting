@@ -13,28 +13,134 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/Resources/учет.png</normaloff>:/Resources/учет.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QListView" name="listViewStreet">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>150</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="editTriggers">
-         <set>QAbstractItemView::NoEditTriggers</set>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>24</width>
+            <height>13</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>170</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Население</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <property name="leftMargin">
+            <number>2</number>
+           </property>
+           <property name="topMargin">
+            <number>2</number>
+           </property>
+           <property name="rightMargin">
+            <number>2</number>
+           </property>
+           <property name="bottomMargin">
+            <number>2</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QTreeView" name="treeViewStreet">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="minimumSize">
+           <size>
+            <width>100</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>170</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>Организации</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <property name="leftMargin">
+            <number>2</number>
+           </property>
+           <property name="topMargin">
+            <number>2</number>
+           </property>
+           <property name="rightMargin">
+            <number>2</number>
+           </property>
+           <property name="bottomMargin">
+            <number>2</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QTreeView" name="treeViewOrganization">
+             <property name="itemsExpandable">
+              <bool>true</bool>
+             </property>
+             <attribute name="headerDefaultSectionSize">
+              <number>0</number>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -61,10 +167,10 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="lineEditSearch"/>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="pushButtonSearch">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -139,6 +245,9 @@
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
+               <property name="sortingEnabled">
+                <bool>false</bool>
+               </property>
               </widget>
              </item>
             </layout>
@@ -176,41 +285,31 @@
      <string>Файл</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menu_account">
+   <widget class="QMenu" name="menu_reference">
     <property name="title">
-     <string>Абонент</string>
+     <string>Справочники</string>
     </property>
-    <addaction name="action_add_account"/>
-    <addaction name="separator"/>
+    <addaction name="action_list_street"/>
     <addaction name="action_list_account"/>
-   </widget>
-   <widget class="QMenu" name="menu_rate">
-    <property name="title">
-     <string>Тариф</string>
-    </property>
-    <addaction name="action_add_rate"/>
-    <addaction name="separator"/>
     <addaction name="action_list_rate"/>
    </widget>
-   <widget class="QMenu" name="menu_street">
-    <property name="title">
-     <string>Улица</string>
-    </property>
-    <addaction name="action_add_street"/>
-    <addaction name="separator"/>
-    <addaction name="action_list_street"/>
-   </widget>
-   <widget class="QMenu" name="menu_2">
+   <widget class="QMenu" name="menu_building">
     <property name="title">
      <string>Здание</string>
     </property>
     <addaction name="action_add_building"/>
    </widget>
+   <widget class="QMenu" name="menu_action">
+    <property name="title">
+     <string>Действие</string>
+    </property>
+    <addaction name="action_accruals_massive"/>
+    <addaction name="action_accruals"/>
+   </widget>
    <addaction name="menu"/>
-   <addaction name="menu_street"/>
-   <addaction name="menu_account"/>
-   <addaction name="menu_rate"/>
-   <addaction name="menu_2"/>
+   <addaction name="menu_reference"/>
+   <addaction name="menu_building"/>
+   <addaction name="menu_action"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -219,91 +318,63 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionAccount"/>
-   <addaction name="actionBuilding"/>
+   <addaction name="action_add_building"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionAccount">
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/Resources/Add-Account.ico</normaloff>:/Resources/Add-Account.ico</iconset>
-   </property>
-   <property name="text">
-    <string>Дабавить Абонента</string>
-   </property>
-   <property name="toolTip">
-    <string>Дабавить Абонента</string>
-   </property>
-  </action>
-  <action name="actionBuilding">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/Resources/building_add.ico</normaloff>:/Resources/building_add.ico</iconset>
-   </property>
-   <property name="text">
-    <string>Добавить Здание</string>
-   </property>
-   <property name="toolTip">
-    <string>Добавть новое здание</string>
-   </property>
-  </action>
   <action name="action_list_rate">
    <property name="text">
-    <string>Список</string>
-   </property>
-  </action>
-  <action name="action_add_rate">
-   <property name="text">
-    <string>Добавить</string>
-   </property>
-   <property name="iconText">
-    <string>Добавить тариф</string>
+    <string>Тарифы</string>
    </property>
    <property name="toolTip">
-    <string>Добавить тариф</string>
-   </property>
-  </action>
-  <action name="action_add_account">
-   <property name="text">
-    <string>Добавить</string>
-   </property>
-   <property name="toolTip">
-    <string>Добавить акаунт</string>
+    <string>Список тарифов</string>
    </property>
   </action>
   <action name="action_list_account">
    <property name="text">
-    <string>Список</string>
-   </property>
-  </action>
-  <action name="action_add_street">
-   <property name="text">
-    <string>Добавить</string>
+    <string>Люди</string>
    </property>
    <property name="toolTip">
-    <string>Добавить улицу</string>
+    <string>Список людей</string>
    </property>
   </action>
   <action name="action_list_street">
    <property name="text">
-    <string>Список</string>
+    <string>Улицы</string>
    </property>
    <property name="toolTip">
     <string>Список улиц</string>
    </property>
   </action>
   <action name="action_add_building">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Resources/add.png</normaloff>:/Resources/add.png</iconset>
+   </property>
    <property name="text">
     <string>Добавить</string>
    </property>
    <property name="toolTip">
-    <string>Добавить здание</string>
+    <string>Добавить знание</string>
+   </property>
+  </action>
+  <action name="action_accruals">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/Resources/Money_Calculator.ico</normaloff>:/Resources/Money_Calculator.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Произвести начисления по счету</string>
+   </property>
+  </action>
+  <action name="action_accruals_massive">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Произвести начисления массовые</string>
+   </property>
+   <property name="visible">
+    <bool>true</bool>
    </property>
   </action>
  </widget>

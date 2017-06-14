@@ -26,28 +26,46 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     buildingdialog.cpp \
-    dbfacade.cpp \
     streetdialog.cpp \
     database.cpp \
     accountdialog.cpp \
     ratedialog.cpp \
-    liststreetdialog.cpp
+    liststreetdialog.cpp \
+    listaccountdialog.cpp \
+    editaccountdialog.cpp \
+    categorymodel.cpp \
+    accrualsdialog.cpp \
+    tableratedialog.cpp \
+    decimal.cpp \
+    monthmodel.cpp \
+    datedelegate.cpp
 
 HEADERS  += mainwindow.h \
     buildingdialog.h \
-    dbfacade.h \
     streetdialog.h \
     database.h \
     accountdialog.h \
     ratedialog.h \
-    liststreetdialog.h
+    liststreetdialog.h \
+    listaccountdialog.h \
+    editaccountdialog.h \
+    categorymodel.h \
+    accrualsdialog.h \
+    tableratedialog.h \
+    decimal.h \
+    monthmodel.h \
+    datedelegate.h
 
 FORMS    += mainwindow.ui \
     buildingdialog.ui \
     addstreetdialog.ui \
-    addaccountdialog.ui \
     addratedialog.ui \
-    liststreetdialog.ui
+    liststreetdialog.ui \
+    listaccountdialog.ui \
+    editaccountdialog.ui \
+    addaccountdialog.ui \
+    accrualsdialog.ui \
+    tableratedialog.ui
 
 RESOURCES += \
     resources.qrc

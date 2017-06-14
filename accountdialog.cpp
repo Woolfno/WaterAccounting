@@ -1,13 +1,26 @@
 #include "accountdialog.h"
 
+#include <QMessageBox>
 #include <QDebug>
+
 #include "liststreetdialog.h"
 
-AccountDialog::AccountDialog(DataBase *db, QWidget *parent):
-    db(db), QDialog(parent), streetId(-1)
+AccountDialog::AccountDialog(DataBase *db, int selectId, QWidget *parent):
+    QDialog(parent), db(db), accountId(selectId)
 {
     ui.setupUi(this);
-    setFixedSize(330,200);
+    setFixedSize(350,135);
+
+    if(selectId!=-1)
+    {
+        QSqlQueryModel model;
+        if(db->accountById(&model, accountId))
+        {
+            ui.lineEditFirstName->setText(model.index(0,0).data().toString());
+            ui.lineEditSecondName->setText(model.index(0,1).data().toString());
+            ui.lineEditLastName->setText(model.index(0,2).data().toString());
+        }
+    }
 }
 
 AccountDialog::~AccountDialog()
@@ -20,20 +33,26 @@ void AccountDialog::on_buttonBox_accepted()
     QString fname=ui.lineEditFirstName->text();
     QString sname=ui.lineEditSecondName->text();
     QString lname=ui.lineEditLastName->text();
-    if(fname.length()>0 && sname.length()>0 && lname.length()>0)
+
+    if(!fname.isEmpty() && !sname.isEmpty() && !lname.isEmpty())
     {
-        if(!db->addAccount(fname, sname, lname))
-            throw "can`t add new account";
+        if(accountId!=-1)
+        {
+            qDebug()<<"Изменить имя ?";
+            QMessageBox msg("Учет Воды", "Вы уверены, что хотите изменить?",
+                            QMessageBox::Question,
+                            QMessageBox::Yes|QMessageBox::Default,
+                            QMessageBox::No|QMessageBox::Escape,
+                            QMessageBox::NoButton);
+            if(msg.exec()==QMessageBox::Yes)
+                db->updateAccount(accountId, fname, sname, lname);
+        }
+        else
+            accountId=db->addAccount(fname, sname, lname);
     }
 }
 
-void AccountDialog::on_pushButtonStreetChoose_clicked()
+int AccountDialog::getAccountId() const
 {
-    ListStreetDialog * dlg=new ListStreetDialog(db, streetId);
-    if(dlg->exec()==QDialog::Accepted)
-    {
-        streetId=dlg->getStreetId();
-        ui.lineEdit->setText(dlg->getStreetName());
-    }
-    delete dlg;
+    return accountId;
 }

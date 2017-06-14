@@ -58,18 +58,19 @@ int ListStreetDialog::getStreetId() const
 
 void ListStreetDialog::on_pushButtonAdd_clicked()
 {
-    StreetDialog * dlg=new StreetDialog();
+    StreetDialog * dlg=new StreetDialog(this);
     if(dlg->exec()==QDialog::Accepted)
     {
-        if(!dlg->getStreetName().isEmpty())
+        qDebug()<<"Add street accept";
+        if(!db->addStreet(dlg->getStreetName()))
         {
-            if(!db->addStreet(dlg->getStreetName()))
-                throw "can`t add new street";
-            else
-            {
-                db->allStreet(model);
-                qDebug()<<dlg->getStreetName();
-            }
+            QMessageBox msg;
+            msg.setText("Невозможно добавить");
+            msg.show();
+        }
+        else
+        {
+            db->allStreet(model);
         }
     }
     delete dlg;
@@ -98,7 +99,7 @@ void ListStreetDialog::on_pushButtonDelete_clicked()
 void ListStreetDialog::on_pushButtonEdit_clicked()
 {
     int editId=model->data(model->index(ui.listStreet->currentIndex().row(), 0)).toInt();
-    QString editName=model->data(model->index(ui.listStreet->currentIndex().row(), 0)).toString();
+    QString editName=model->data(model->index(ui.listStreet->currentIndex().row(), 1)).toString();
 
     StreetDialog *dlg=new StreetDialog;
     dlg->setStreetName(editName);

@@ -16,8 +16,8 @@ private slots:
     void on_buttonBox_accepted();
 
 private:
-    Ui::AddRateDialog ui;
     DataBase * db;
+    Ui::AddRateDialog ui;
 };
 
 #endif // RATEDIALOG_H
